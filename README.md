@@ -6,14 +6,14 @@ Final Project for Good Neighb(o)r
 
 ## To Do List 
 
-- [ ] Get Woo.java to compile
-- [ ] Implement all Crime classes
-- [ ] Implement Busters
-- [ ] Implement Equipment
-- [ ] Implement CallCenter
-- [ ] Implement Jake
-- [ ] Implement Level
-- [ ] Resolve issues
+- [ ] Get Woo.java to compile -- Day 1
+- [ ] Implement all Crime classes  -- Day 2-3
+- [ ] Implement Busters -- Day 4
+- [ ] Implement Equipment -- Day 4
+- [ ] Implement CallCenter --Day 4-5
+- [ ] Implement Jake --Day 5
+- [ ] Implement Level -- Day 5
+- [ ] Resolve issues -- Day forever
 
 
 
