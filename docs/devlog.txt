@@ -44,6 +44,12 @@ Lily ::
 Alexia :: 
 Lynne ::
 
+2018-05-30
+--------------------------------------------------------------
+Lily :: added more to proposal
+Alexia :: added more to proposal, added repo as submodule to repo of holding
+Lynne :: added more to proposal
+
 2018-05-29
 --------------------------------------------------------------
 Lily :: Incorporated term 2 concepts into proposal.
