@@ -15,6 +15,15 @@ Final Project for Good Neighb(o)r
 - [ ] Implement Level -- Day 5
 - [ ] Resolve issues -- Day forever
 
+## Stretch Goals
+
+- Play in the perspective of a criminal
+- Factoring distance of Busters and Crimes
+- Graphics? (Processing?)
+
+
+
+
 
 
 
