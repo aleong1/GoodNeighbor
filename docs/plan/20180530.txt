@@ -12,10 +12,10 @@ Crucial jobs:
 -Coming up with situations/scenarios
 
 Core components:
--Crimes, CallCenter,Burgular classes
+-Crimes, CallCenter,Burglar classes
 
 Prereq components:
-CallCenter needs: Crime, Burgular, Equipment, 
+CallCenter needs: Crime, Burglar, Equipment, 
 Jake needs: Crime
 
 Individual tasks vs collaborative tasks:
