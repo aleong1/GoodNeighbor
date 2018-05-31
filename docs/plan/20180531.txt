@@ -7,7 +7,7 @@ pd 1
 Plans:
 
 Crucial jobs:
-Implementing the Crime class and subclasses
+Designing the Crime class and subclasses
 
 Core components:
 Crimes, CallCenter,Burglar classes
@@ -17,5 +17,5 @@ CallCenter needs: Crime, Burglar, Equipment,
 Jake needs: Crime
 
 Individual tasks vs collaborative tasks:
-Collaborative: Implementing the superclasses
-Individual: Coming up with scenarios, implementing subclasses that are similar to each other (ex. all the crime subclasses)
+Collaborative: Designing the superclasses
+Individual: Coming up with scenarios, designing the subclasses that are similar to each other (ex. all the crime subclasses)
