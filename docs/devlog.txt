@@ -38,16 +38,22 @@ LESSONS LEARNED
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
 ==============================================================
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-2018-05-
+2018-06-
 --------------------------------------------------------------
 Lily ::
 Alexia :: 
 Lynne ::
 
+2018-05-31
+--------------------------------------------------------------
+Lily :: Wrote plan
+Alexia :: Wrote plan
+Lynne ::
+
 2018-05-30
 --------------------------------------------------------------
 Lily :: added more to proposal
-Alexia :: added more to proposal, added repo as submodule to repo of holding
+Alexia :: added more to proposal, added repo as submodule to repo of holding, wrote plan
 Lynne :: added more to proposal
 
 2018-05-29
