@@ -20,5 +20,5 @@ Jake needs: Crime
 
 Individual tasks vs collaborative tasks:
 Collaborative: Implementing the superclasses that won't really be 'replicated'
-Individual: Comming up with scenarios, implementing subclasses that are similar to each other (ex. all the crime subclasses)
+Individual: Coming up with scenarios, implementing subclasses that are similar to each other (ex. all the crime subclasses)
 
