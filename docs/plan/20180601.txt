@@ -7,16 +7,15 @@ pd 1
 Plans:
 
 Crucial jobs:
-Making Plan, UML, flowcharts 
-Designing the Crime class and subclasses
+Designing the Crime class and subclasses, adjusting UML and flowcharts
 
 Core components:
-Crimes, CallCenter,Burglar classes
+Crimes, CallCenter, Burglar classes
 
 Prereq components:
 CallCenter needs: Crime, Burglar, Equipment, 
 Jake needs: Crime
 
 Individual tasks vs collaborative tasks:
-Collaborative: Designing the superclasses, discussing flowchart and UML
+Collaborative: Designing the superclasses
 Individual: Coming up with scenarios, designing the subclasses that are similar to each other (ex. all the crime subclasses)
