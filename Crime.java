@@ -17,12 +17,13 @@ public class Crime{
     private boolean needBackUp;  //For more police cars if needed
     
 
-    public Crime(){     //constructor
-
+    public Crime(int extrem, int prior){     //constructor
+	extremity = extrem;
+	priority = prior;
     }
 
-    public void whenSolved(Crime input){
-
+    public boolean whenSolved(Crime input){
+	if(
     }
 
     public static void main(String[] args){
