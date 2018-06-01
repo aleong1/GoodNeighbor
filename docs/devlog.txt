@@ -46,9 +46,9 @@ Lynne ::
 
 2018-05-31
 --------------------------------------------------------------
-Lily :: Wrote plan
+Lily :: Wrote plan and flow charts
 Alexia :: Wrote plan
-Lynne ::
+Lynne :: Wrrote up the UML
 
 2018-05-30
 --------------------------------------------------------------
