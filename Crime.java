@@ -22,10 +22,6 @@ public class Crime{
 	priority = prior;
     }
 
-    public boolean whenSolved(Crime input){
-	if(
-    }
-
     public static void main(String[] args){
 
     }
