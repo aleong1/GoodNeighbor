@@ -43,25 +43,35 @@ LESSONS LEARNED
 Lily ::
 Alexia :: 
 Lynne ::
+==============================================================
+
+2018-06-01
+--------------------------------------------------------------
+Lily :: wrote plan, worked on writing Crime class
+Alexia :: wrote plan, worked on writing Crime class
+Lynne :: wrote plan, worked on writing Crime class
+==============================================================
 
 2018-05-31
 --------------------------------------------------------------
 Lily :: Wrote plan and flow charts
 Alexia :: Wrote plan
-Lynne :: Wrrote up the UML
+Lynne :: Wrote up the UML
+==============================================================
 
 2018-05-30
 --------------------------------------------------------------
 Lily :: added more to proposal
 Alexia :: added more to proposal, added repo as submodule to repo of holding, wrote plan
 Lynne :: added more to proposal
+==============================================================
 
 2018-05-29
 --------------------------------------------------------------
 Lily :: Incorporated term 2 concepts into proposal.
 Alexia :: Incorporated term 2 concepts into proposal.
 Lynne :: Incorporated term 2 concepts into proposal.
-
+==============================================================
 
 2018-05-28
 --------------------------------------------------------------
