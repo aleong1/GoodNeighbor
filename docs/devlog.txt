@@ -21,7 +21,7 @@ COOL STUFF LEARNED
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+-In the Crime class we got rid of whenSolved() because we moved it to CallCenter because that's where timing will be taken care of.
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -41,6 +41,13 @@ LESSONS LEARNED
 2018-06-
 --------------------------------------------------------------
 Lily ::
+Alexia :: 
+Lynne ::
+==============================================================
+
+2018-06-03
+--------------------------------------------------------------
+Lily :: Worked on plan and printed it out
 Alexia :: 
 Lynne ::
 ==============================================================
