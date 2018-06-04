@@ -4,22 +4,22 @@
 
 public class Crime{
     //instance variables
-    private int extremity;
-    private int priority;
-    private int timer;
+    protected int extremity;
+    protected int priority;
+    protected int timer;
 
-    private boolean needParamedics;  //for Arson, Murder, CarCrash, Drugs, SexualAssault, Kidnapping
-    private boolean needCoroner;   //same as above
-    private boolean needFireDept;
-    private boolean needFBI;
-    private boolean needIRS;
-    private boolean needTow;   //For CarCrash and ParkingVio
-    private boolean needBackUp;  //For more police cars if needed
+    protected boolean needParamedics;  //for Arson, Murder, CarCrash, Drugs, SexualAssault, Kidnapping
+    protected boolean needCoroner;   //same as above
+    protected boolean needFireDept;
+    protected boolean needFBI;
+    protected boolean needIRS;
+    protected boolean needTow;   //For CarCrash and ParkingVio
+    protected boolean needBackUp;  //For more police cars if needed
     
 
-    public Crime(int extrem, int prior){     //constructor
+    public Crime(int extrem){     //constructor
 	extremity = extrem;
-	priority = prior;
+	//priority = prior;
     }
 
     public static void main(String[] args){
