@@ -4,7 +4,7 @@
 
 public class Busters{
     //instance variables
-    protected boolean name;
+    protected String name;
     
     protected boolean solveArson;
     protected boolean solveMurder;

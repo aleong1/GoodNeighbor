@@ -7,7 +7,7 @@ public class Coroner extends Busters {
 	name = "Coroner";
 	solveArson = true;
 	solveMurder = true;
-	solveCarCrash = true;
+	solveTraffic = true;
 	solveDrugs = true;
     }
 

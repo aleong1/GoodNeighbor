@@ -7,8 +7,7 @@ public class Paramedics extends Busters {
 	name = "Paramedics";
 	solveArson = true;
 	solveMurder = true;
-	solveDUI = true;
-	solveCarCrash = true;
+	solveTraffic = true;
 	solveDrugs = true;
 	solveSexualAssault = true;
 	solveKidnapping = true;

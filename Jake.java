@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Jake {
 
-    public int score;
+    public static int score;
     private Stack<String> interactions;
     private String[][] aftermath = new String[2][9];
     private int[][] answerBank = new int[2][9];
