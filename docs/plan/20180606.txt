@@ -1,0 +1,43 @@
+GoodNeighbor
+Alexia Leong, Lynne Wang, Lily Yan
+APCS2 pd01
+
+Plan for 06-06-2018
+
+Crucial jobs:
+Get a basic version of the game in the terminal. The user would be able to
+instantiate the game, get calls about crimes throughout the day, and rank the
+order in which they wish to solve these crimes at certain time intervals.
+
+Core functionality:
+- basic game should function in response to user input and solve crimes
+according to the priority the user ranks these crimes
+- crimes come into call center, user can choose busters and equipment to assist
+with crime. If right busters chosen, Jake gets a bonus; if wrong busters chosen,
+Jake gets a detraction from his salary (points). Choosing the right equipment
+will increase points, wrong equipment will have no effect on points (but time
+will be lost choosing equipment). User does not have to choose busters or
+equipment.
+- equipment mini-game
+- extremity is random value in interval(1, difficulty + 2)
+- typing and timing
+- timer running on screen
+
+Non-essentials:
+- may want to make a user interface with processing after basic game in terminal
+is made
+- funny dialogue, funny calls
+- people with powers
+
+Prerequisite Components:
+- For Jake, need CallCenter to function and interactions to be written
+- each Crime has its own time, and then there is a general timer
+- equipment, busters, and crimes all written before CallCenter
+
+Tasks:
+Collaborative:
+- CallCenter
+  - timing functionality, equipment mini-game
+
+Delegated:
+- Interactions, Situations
