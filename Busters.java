@@ -4,6 +4,8 @@
 
 public class Busters{
     //instance variables
+    protected boolean name;
+    
     protected boolean solveArson;
     protected boolean solveMurder;
     protected boolean solveTraffic;
@@ -12,10 +14,13 @@ public class Busters{
     protected boolean solveKidnapping;
     protected boolean solveTaxFraud;
     
-
     public Busters(){     //constructor
     }
 
+    public String toString() {
+	return name;
+    }
+    
     public static void main(String[] args){
     }
 

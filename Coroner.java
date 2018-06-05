@@ -4,6 +4,7 @@ public class Coroner extends Busters {
     public Coroner() {
         super();
 
+	name = "Coroner";
 	solveArson = true;
 	solveMurder = true;
 	solveCarCrash = true;

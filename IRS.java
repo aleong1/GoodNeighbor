@@ -4,6 +4,7 @@ public class IRS extends Busters {
     public IRS() {
         super();
 
+	name = "IRS";
 	solveTaxFraud = true;
     }
 

@@ -4,6 +4,7 @@ public class FireDept extends Busters {
     public FireDept() {
         super();
 
+	name = "Fire Department";
 	solveArson = true;
     }
 
