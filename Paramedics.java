@@ -4,6 +4,7 @@ public class Paramedics extends Busters {
     public Paramedics() {
         super();
 
+	name = "Paramedics";
 	solveArson = true;
 	solveMurder = true;
 	solveDUI = true;

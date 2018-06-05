@@ -4,6 +4,7 @@ public class TowingCompany extends Busters {
     public TowingCompany() {
         super();
 
+	name = "Towing Company";
 	solveTraffic = true;
 	
     }

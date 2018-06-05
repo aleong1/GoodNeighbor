@@ -4,6 +4,7 @@ public class FBI extends Busters {
     public FBI() {
         super();
 
+	name = "FBI";
 	solveMurder = true;
 	solveDrugs = true;
 	solveKidnapping = true;
