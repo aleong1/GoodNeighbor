@@ -12,6 +12,8 @@ public class Traffic extends Crime{
 	needParamedics = true;
 	needFireDept = true;
 	needCoroner = true;
+
+	name = "Traffic";
     }
 
     public static void main(String[] args){

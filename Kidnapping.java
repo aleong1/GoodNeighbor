@@ -1,5 +1,5 @@
 public class Kidnapping extends Crime{
-  //constructor
+    //constructor
     public Kidnapping(int extrem) {
         super(extrem);
 
@@ -10,7 +10,9 @@ public class Kidnapping extends Crime{
 	needParamedics = true;
 	needCoroner = true;
 	needFBI = true;
-  needBackUp = true;
+	needBackUp = true;
+
+	name = "Kidnapping";
     }
 
     public static void main(String[] args){

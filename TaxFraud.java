@@ -1,14 +1,16 @@
 public class TaxFraud extends Crime{
-  //constructor
-  public TaxFraud(int extrem) {
-    super(extrem);
-    if (extrem == 2) timer = 15000; //30 minutes
+    //constructor
+    public TaxFraud(int extrem) {
+	super(extrem);
+	if (extrem == 2) timer = 15000; //30 minutes
 
-    needIRS = true;
-  }
+	needIRS = true;
+	
+	name = "TaxFraud";
+    }
 
-  public static void main(String[] args){
+    public static void main(String[] args){
 
-  }
+    }
 
 }
