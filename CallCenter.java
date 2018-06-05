@@ -11,10 +11,9 @@ public class CallCenter {
     private ALHeapMin inventory;
     private LinkedList<Busters> busters;
     private int time;
-    
 
     long startTime = System.currentTimeMillis();
-    long endTime = startTime + timePassed;
+    long endTime = startTime + time;
 
     public CallCenter(int inputTime) {
 	time = inputTime;
