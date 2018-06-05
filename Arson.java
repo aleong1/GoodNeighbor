@@ -13,6 +13,8 @@ public class Arson extends Crime{
 	needParamedics = true;
 	needFireDept = true;
 	needCoroner = true;
+
+	name = "Arson";
     }
 
     public static void main(String[] args){

@@ -82,11 +82,11 @@ public class ALHeapMin
      * Inserts an element in the heap
      * Postcondition: Tree exhibits heap property.
      *****************************************************/
-    public void add( Equipment addVal )
+    public void add( Equipment equip )
     { 
 
 	//Add value as last node, to maintain balance, completeness of tree
-	_heap.add( addVal.getValue() );
+	_heap.add( equip );
 
 	int addValPos = _heap.size() - 1;
 	int parentPos;
@@ -96,7 +96,7 @@ public class ALHeapMin
 	    //pinpoint parent
 	    parentPos = (addValPos-1) / 2;
 
-	    if ( addVal.compareTo(_heap.get(parentPos)) < 0 ) {//addVal < parent
+	    if ( equip.getValue() < _heap.get(parentPos).getValue()) {//addVal < parent
 		swap( addValPos, parentPos );
 		addValPos = parentPos;
 	    }
@@ -141,7 +141,7 @@ public class ALHeapMin
 	    if ( minChildPos == -1 ) 
 		break;
 	    //if i am less than my least child, then i've walked far enough
-	    else if ( foo.compareTo( _heap.get(minChildPos) ) <= 0 ) 
+	    else if ( foo.getValue() <= _heap.get(minChildPos).getValue())
 		break;
 	    //if i am > least child, swap with that child
 	    else {
@@ -173,7 +173,7 @@ public class ALHeapMin
 	else if ( rc >= _heap.size() )
 	    retVal = lc;
 	//have 2 children, so compare to find least 
-	else if ( _heap.get(lc).compareTo(_heap.get(rc)) < 0 )
+	else if ( _heap.get(lc).getValue() < _heap.get(rc).getValue())
 	    retVal = lc;
 	else
 	    retVal = rc;
@@ -185,7 +185,7 @@ public class ALHeapMin
     //************ aux helper fxns ***************
     private Equipment minOf( Equipment a, Equipment b )
     {
-	if ( a.compareTo(b) < 0 )
+	if ( a.getValue() < b.getValue() )
 	    return a;
 	else
 	    return b;

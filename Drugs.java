@@ -12,6 +12,8 @@ public class Drugs extends Crime{
 	needParamedics = true;
 	needFBI = true;
 	needCoroner = true;
+
+	name = "Drugs";
     }
 
     public static void main(String[] args){

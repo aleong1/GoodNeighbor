@@ -9,6 +9,8 @@ public class Murder extends Crime{
 	needParamedics = true;
 	needFBI = true;
 	needCoroner = true;
+
+	name = "Murder";
     }
 
     public static void main(String[] args){

@@ -7,6 +7,7 @@ public class Crime{
     protected int extremity;
     protected int priority;
     protected int timer;
+    protected String name;
 
     protected boolean needParamedics;  //for Arson, Murder, CarCrash, Drugs, SexualAssault, Kidnapping
     protected boolean needCoroner;   //same as above
@@ -22,10 +23,18 @@ public class Crime{
         priority = 0;
     }
 
+    public int getPriority() {
+	return priority;
+    }
+    
     public int setPriority(int prior) {
 	int temp = priority;
 	priority = prior;
 	return temp;
+    }
+
+    public String toString() {
+	return name;
     }
 
     public static void main(String[] args){
