@@ -19,7 +19,13 @@ public class Crime{
 
     public Crime(int extrem){     //constructor
 	extremity = extrem;
-	//priority = prior;
+        priority = 0;
+    }
+
+    public Crime setPriority(int prior) {
+	int temp = priority;
+	priority = prior;
+	return temp;
     }
 
     public static void main(String[] args){
