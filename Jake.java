@@ -3,6 +3,8 @@
  *********************/
 
 import java.util.Stack;
+import cs1.Keyboard;
+import java.util.Scanner;
 
 public class Jake {
 
@@ -48,8 +50,8 @@ public class Jake {
 	String prompter = "";              
 	int choice;
 
-	prompter = interactions.dequeue();
-	System.out.printlnt(prompter);
+	prompter = interactions.pop();
+	System.out.println(prompter);
 
 	choice = Keyboard.readInt();
 	//more stuff to come once stuff is written...
