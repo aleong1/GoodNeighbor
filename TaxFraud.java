@@ -9,8 +9,4 @@ public class TaxFraud extends Crime{
 	name = "TaxFraud";
     }
 
-    public static void main(String[] args){
-
-    }
-
 }

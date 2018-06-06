@@ -16,9 +16,4 @@ public class Traffic extends Crime{
 	name = "Traffic";
     }
 
-    public static void main(String[] args){
-
-    } 
-
-
 }

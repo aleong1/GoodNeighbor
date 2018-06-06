@@ -13,10 +13,4 @@ public class SexualAssault extends Crime{
 	name = "SexualAssault";
     }
 
-    public static void main(String[] args){
-
-    }
-
-}
-
 }

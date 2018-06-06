@@ -15,10 +15,4 @@ public class Kidnapping extends Crime{
 	name = "Kidnapping";
     }
 
-    public static void main(String[] args){
-
-    }
-
-}
-
 }

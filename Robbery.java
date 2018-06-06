@@ -11,11 +11,4 @@ public class Robbery extends Crime{
 
 	name = "Robbery";
     }
-
-    public static void main(String[] args){
-
-    }
-
-}
-
 }

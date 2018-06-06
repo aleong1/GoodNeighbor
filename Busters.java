@@ -5,6 +5,8 @@
 public class Busters{
     //instance variables
     protected String name;
+
+    protected boolean isChosen;
     
     protected boolean solveArson;
     protected boolean solveMurder;
@@ -15,13 +17,14 @@ public class Busters{
     protected boolean solveTaxFraud;
     
     public Busters(){     //constructor
+	isChosen = true;
     }
 
+    public void changeIsChosen() {
+	isChosen = (! isChosen);
+    }
+    
     public String toString() {
 	return name;
     }
-    
-    public static void main(String[] args){
-    }
-
 }

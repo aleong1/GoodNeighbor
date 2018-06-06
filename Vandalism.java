@@ -9,10 +9,4 @@ public class Vandalism extends Crime{
 	name = "Vandalism";
 	
     }
-
-    public static void main(String[] args){
-
-    } 
-
-
 }

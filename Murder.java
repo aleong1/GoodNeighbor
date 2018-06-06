@@ -12,8 +12,4 @@ public class Murder extends Crime{
 
 	name = "Murder";
     }
-
-    public static void main(String[] args){
-
-    } 
 }

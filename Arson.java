@@ -17,8 +17,4 @@ public class Arson extends Crime{
 	name = "Arson";
     }
 
-    public static void main(String[] args){
-
-    } 
-
 }

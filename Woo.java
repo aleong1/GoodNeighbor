@@ -7,15 +7,15 @@ public class Woo{
 
     //instance variables
     //private boolean levelOver;
-    final String ANSI_CLS = "\u001b[2J";
-    final String ANSI_HOME = "\u001b[H";
+    static final String ANSI_CLS = "\u001b[2J";
+    static final String ANSI_HOME = "\u001b[H";
     
-    public void play() {
+    public static void play(Jake player) {
 	
         for(int i = 1; i <= 3; i++) { //goes through three days
-	    Jake.interact();
 	    CallCenter dayEvents = new CallCenter(i);
-	    Jake.interact();
+	    dayEvents.startLv(dayEvents, player);
+	    
 	    if (Jake.score < 100 * i) {
 		levelOver();
 		System.out.println("You did not pass this level. Must replay.");
@@ -30,20 +30,21 @@ public class Woo{
 	}
     }
 
-    public void levelOver() {
+    public static void levelOver() {
 	System.out.print(ANSI_CLS + ANSI_HOME);
 	System.out.flush();
 	System.out.println("Level Over.\n\nCurrent Score: " + Jake.score);
     }
     
-    public void gameOver() {
+    public static void gameOver() {
 	System.out.print(ANSI_CLS + ANSI_HOME);
 	System.out.flush();
 	System.out.println("GAME OVER!\n\nScore: " + Jake.score);
     }
     
     public static void main(String[] args){
-
+	Jake fromStateFarm = new Jake();
+	play(fromStateFarm);
     }
     
 

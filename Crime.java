@@ -26,6 +26,10 @@ public class Crime{
     public int getPriority() {
 	return priority;
     }
+
+    public int getTimer() {
+	return timer;
+    }
     
     public int setPriority(int prior) {
 	int temp = priority;
@@ -33,8 +37,14 @@ public class Crime{
 	return temp;
     }
 
+    public int changeTimer(double factor) { //benefit/punishment. Factor == 2 or 0.5
+	int temp = timer;
+	timer *= factor;
+	return temp;
+    }
+
     public String toString() {
-	return name;
+	return name + " -- Priorty = " + priority;
     }
 
     public static void main(String[] args){

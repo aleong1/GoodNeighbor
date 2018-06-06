@@ -16,8 +16,4 @@ public class Drugs extends Crime{
 	name = "Drugs";
     }
 
-    public static void main(String[] args){
-
-    } 
-
 }

@@ -42,10 +42,14 @@ public class ArrayPriorityQueue implements PriorityQueue {
 
     //toString
     public String toString() {
-	String retStr = "FRONT-->";
-	for (Crime s: _data) retStr += s + "-->";
-	retStr += "END";
+	String retStr = "\n";
+	for (Crime s: _data) retStr += s + "\n";
 	return retStr;
+    }
+
+    //size
+    public int size() {
+	return _size;
     }
     
     //main
