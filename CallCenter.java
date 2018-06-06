@@ -161,6 +161,10 @@ public class CallCenter {
     }
 
     public void startLv(CallCenter currentLv, Jake player) { //i'll try to find a way to not need to use the first param
+	if (currentLv.getDifficulty() >= 1) crimes.add(crimeMaker((int)(Math.random()*9)));
+	if (currentLv.getDifficulty() >= 2) crimes.add(crimeMaker((int)(Math.random()*9)));
+	if (currentLv.getDifficulty() == 3) crimes.add(crimeMaker((int)(Math.random()*9)));
+
 	player.interact(currentLv);
 	int halfSize = crimes.size()/2;
 	boolean firstCrime = true;

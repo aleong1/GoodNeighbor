@@ -10,7 +10,7 @@ public class Jake {
 
     public static int score;
     private static Stack<String> interactions;
-    private String[][] aftermath = new String[3][9];
+    private static String[][] aftermath = new String[3][9];
     private static boolean[][] answerBank = new boolean[3][9];
 
     //constructor
@@ -18,22 +18,24 @@ public class Jake {
 	score = 0;
 	interactions = new Stack<String>();
 
-	//interactions
+	//interactions are in reverse order
+	
+	//day 3
+	interactions.push("These past three days have been tough on you Jake, but at least you made it through them. How do you think you did, Jake?");
+
+	interactions.push("How’s this test gong for you, Jake. Is it going well, I hope you’re not slacking off because it’s almost the end of the day. I’ll be watching you.");
+	interactions.push("The start of your third day, Jake. \nDid you wake up and smell the roses because get ready, you have a big day in front of you.\nThis will be the last day of me testing you out to see if you’re cut out for our department.\nIf you ask any of the other officers here, they’ll tell you that they went through this process as well.\nI’m a hard chief to get by, Jake.");
+	//day 2
+	interactions.push("Day 2 done, Jake. How was it? \nIn case you didn’t know I was testing you out to see if you were really for for our department. \nYou know how here in Progressive Police Department all we do is the best work law \nenforcement has ever seen. So here, you have to be at your best, always.");
+	interactions.push("So how’s the test coming along. Are you handling it well? Do you think you’re able to do more till the sun goes down?");
+	interactions.push("Day 2 on the job, Jake. \nI saw how you were doing yesterday and do you know what I \nthought, “Wow, I’m gonna test Jake a little more.” Don’t worry Jake, just keep doing what \nyou’ve been doing. All cadets go through this. Just be grateful that you don’t have to go on \nthe station donut and coffee run, or clean the cells, or get paper cuts from filing all the paperwork.");
 
 	//day 1
-	interactions.push("Welcome to the Progressive Police Station, Jake! \nBased off the application you submitted it seems like you’re a very promising cadet.\nI hope you’re not after my job (ha ha)! \nSince this is your first day, I’ll go easy on you, I’ll try to get the other officers to take on some cases to keep your workload a little light. \nBut don’t be a slacker, you’ve heard about me, Chief Flo, right? \nAnd you know how harsh I can be with my officers so give me a great first impression cadet. \nBut please change your outfit.");
-	interactions.push("Hey, Jake, just checking in on you on your first day. \nHow are your cases going, I know you requested to work without a partner but is everything going swell, \nI know that a cadet with your personality has a lot of potential for many things to happen.");
-	interactions.push("The end of a long day, huh. How was your first day, happy to leave the station and go home? I know I am.");
-
-	//day 2
-	interactions.push("Day 2 on the job, Jake. \nI saw how you were doing yesterday and do you know what I \nthought, “Wow, I’m gonna test Jake a little more.” Don’t worry Jake, just keep doing what \nyou’ve been doing. All cadets go through this. Just be grateful that you don’t have to go on \nthe station donut and coffee run, or clean the cells, or get paper cuts from filing all the paperwork.");
-	interactions.push("So how’s the test coming along. Are you handling it well? Do you think you’re able to do more till the sun goes down?");
-	interactions.push("Day 2 done, Jake. How was it? \nIn case you didn’t know I was testing you out to see if you were really for for our department. \nYou know how here in Progressive Police Department all we do is the best work law \nenforcement has ever seen. So here, you have to be at your best, always.");
-
-	//day 3
-	interactions.push("The start of your third day, Jake. \nDid you wake up and smell the roses because get ready, you have a big day in front of you.\nThis will be the last day of me testing you out to see if you’re cut out for our department.\nIf you ask any of the other officers here, they’ll tell you that they went through this process as well.\nI’m a hard chief to get by, Jake.");
-	interactions.push("How’s this test gong for you, Jake. Is it going well, I hope you’re not slacking off because it’s almost the end of the day. I’ll be watching you.");
-	interactions.push("These past three days have been tough on you Jake, but at least you made it through them. How do you think you did, Jake?");
+	interactions.push("The end of a long day, huh. How was your first day, happy to leave the station and go home? I know I am. \n1. I’ve been waiting for this moment since I stepped into the station, thanks for being so considerate, bro.\ 2. I still have a little more paperwork to get done at my desk. But after that I’m heading home. Thanks for asking, night.\n3. Yeah bye! *runs out*
+");
+	interactions.push("Hey, Jake, just checking in on you on your first day. \nHow are your cases going, I know you requested to work without a partner but is everything going swell, \nI know that a cadet with your personality has a lot of potential for many things to happen.\n 1. Yeah, umm, everything’s fine (haha). I surely did great on my first day, I mean I caught all the criminals and everything, I even got lunch.\n 2. Sorry sir, I can’t talk to you right now. I’m busy solving crimes and doing the work you’re not while you’re on the phone. Good day and goodbye.\n 3. Thanks for checking up sir, gotta say I’m doing ok. I’m used to working solo so it’s been swell, I’ve already solved a few crimes and now I’m working on another.
+");
+	interactions.push("Welcome to the Progressive Police Station, Jake! \nBased off the application you submitted it seems like you’re a very promising cadet.\nI hope you’re not after my job (ha ha)! \nSince this is your first day, I’ll go easy on you, I’ll try to get the other officers to take on some cases to keep your workload a little light. \nBut don’t be a slacker, you’ve heard about me, Chief Flo, right? \nAnd you know how harsh I can be with my officers so give me a great first impression cadet. \nBut please change your outfit.  \n  1. What’s wrong with these khakis? They’re a versatile, thin, and FLO-y material am I right?\n 2. Of course, chief, I’ll go straight to work after I stop by We Are Donuts. Do you want me to get you some too?\n 3. Slacker? Me? HAA! I’ve never slacked on anything before in my life. I’m always there 24/7, whenever you call, if you call I’ll always be where you need me before you can put down the pager. I basically teleport.");
 
 
 	//answer key
@@ -140,11 +142,15 @@ public class Jake {
 	    else if (randomDetriment == 1) {
 		currentLv.crimes.peekMin().changeTimer(2.0);
 		prompter = "\nYour next mission will take twice as much time. Have fun with that.";
+		System.out.println(prompter);
 	    }
 	    else if (randomDetriment == 2) {
 		//available officers decreases. May implement later
 	    }
 	}
+
+	prompter = aftermath[currentLv.getDifficulty()-1][choice-1];
+	System.out.println(prompter);
     }
 
     public static void main(String[] args) {
