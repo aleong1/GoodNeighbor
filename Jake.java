@@ -31,10 +31,8 @@ public class Jake {
 	interactions.push("Day 2 on the job, Jake. \nI saw how you were doing yesterday and do you know what I \nthought, “Wow, I’m gonna test Jake a little more.” Don’t worry Jake, just keep doing what \nyou’ve been doing. All cadets go through this. Just be grateful that you don’t have to go on \nthe station donut and coffee run, or clean the cells, or get paper cuts from filing all the paperwork.");
 
 	//day 1
-	interactions.push("The end of a long day, huh. How was your first day, happy to leave the station and go home? I know I am. \n1. I’ve been waiting for this moment since I stepped into the station, thanks for being so considerate, bro.\ 2. I still have a little more paperwork to get done at my desk. But after that I’m heading home. Thanks for asking, night.\n3. Yeah bye! *runs out*
-");
-	interactions.push("Hey, Jake, just checking in on you on your first day. \nHow are your cases going, I know you requested to work without a partner but is everything going swell, \nI know that a cadet with your personality has a lot of potential for many things to happen.\n 1. Yeah, umm, everything’s fine (haha). I surely did great on my first day, I mean I caught all the criminals and everything, I even got lunch.\n 2. Sorry sir, I can’t talk to you right now. I’m busy solving crimes and doing the work you’re not while you’re on the phone. Good day and goodbye.\n 3. Thanks for checking up sir, gotta say I’m doing ok. I’m used to working solo so it’s been swell, I’ve already solved a few crimes and now I’m working on another.
-");
+	interactions.push("The end of a long day, huh. How was your first day, happy to leave the station and go home? I know I am. \n1. I’ve been waiting for this moment since I stepped into the station, thanks for being so considerate, bro.\n 2. I still have a little more paperwork to get done at my desk. But after that I’m heading home. Thanks for asking, night.\n3. Yeah bye! *runs out*");
+	interactions.push("Hey, Jake, just checking in on you on your first day. \nHow are your cases going, I know you requested to work without a partner but is everything going swell, \nI know that a cadet with your personality has a lot of potential for many things to happen.\n 1. Yeah, umm, everything’s fine (haha). I surely did great on my first day, I mean I caught all the criminals and everything, I even got lunch.\n 2. Sorry sir, I can’t talk to you right now. I’m busy solving crimes and doing the work you’re not while you’re on the phone. Good day and goodbye.\n 3. Thanks for checking up sir, gotta say I’m doing ok. I’m used to working solo so it’s been swell, I’ve already solved a few crimes and now I’m working on another.");
 	interactions.push("Welcome to the Progressive Police Station, Jake! \nBased off the application you submitted it seems like you’re a very promising cadet.\nI hope you’re not after my job (ha ha)! \nSince this is your first day, I’ll go easy on you, I’ll try to get the other officers to take on some cases to keep your workload a little light. \nBut don’t be a slacker, you’ve heard about me, Chief Flo, right? \nAnd you know how harsh I can be with my officers so give me a great first impression cadet. \nBut please change your outfit.  \n  1. What’s wrong with these khakis? They’re a versatile, thin, and FLO-y material am I right?\n 2. Of course, chief, I’ll go straight to work after I stop by We Are Donuts. Do you want me to get you some too?\n 3. Slacker? Me? HAA! I’ve never slacked on anything before in my life. I’m always there 24/7, whenever you call, if you call I’ll always be where you need me before you can put down the pager. I basically teleport.");
 
 
@@ -84,7 +82,7 @@ public class Jake {
 	String prompter = "";
 	int choice;
 
-	prompter = "Here is your current ranking of your crimes: \n";
+	prompter = "Here is the crime coming in: " + newCrime.toString() + "\nHere is your current ranking of your crimes: \n";
 	//prompter += CallCenter.crimes.toString();
 	prompter += "\nHow would you like to rank this crime?";
 	prompter += "\n(To rank something as first, enter 1. To rank something as second, enter 2. And so on...)";
@@ -129,6 +127,7 @@ public class Jake {
 	    }
 	    else if (randomBenefit == 2) {
 		//available officers increases. May implement later
+		System.out.println("test");
 	    }
 	}
 
