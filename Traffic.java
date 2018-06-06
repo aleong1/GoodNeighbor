@@ -10,8 +10,8 @@ public class Traffic extends Crime{
 	else if (extrem == 5) timer = 120000; //4 hours
 
 	needParamedics = true;
-	needFireDept = true;
 	needCoroner = true;
+	needTow = true;
 
 	name = "Traffic";
     }
