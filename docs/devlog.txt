@@ -38,11 +38,11 @@ LESSONS LEARNED
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
 ==============================================================
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-2018-06-
+2018-06-05
 --------------------------------------------------------------
-Lily ::
-Alexia :: 
-Lynne ::
+Lily :: Worked on CallCenter, Woo, Equipment, Busters; revised flowchart
+Alexia :: Worked on Equipment, Jake (plus interactions); modified README
+Lynne :: Worked on Woo, Equipment, Busters, plan; revised UML
 ==============================================================
 
 2018-06-03
