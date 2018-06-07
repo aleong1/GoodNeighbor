@@ -75,8 +75,10 @@ public class CallCenter {
 
 	while (choice == 1) {
 	    prompter = "Please select who you gonna call:";
-	    prompter += "\n" + busters.toString();
-	    prompter += "\n(Select 1 for the first option, 2 for the second, etc...)";
+	    for (int ctr = 0; ctr < busters.size(); ctr ++) {
+		prompter += "\n\t" + (ctr+1) + ": " + busters.get(ctr).toString();
+	    }
+	    prompter += "\n";
 	    System.out.println(prompter);
 
 	    choice = Keyboard.readInt();

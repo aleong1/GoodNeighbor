@@ -16,8 +16,8 @@ public class Woo{
 	    CallCenter dayEvents = new CallCenter(i);
 	    dayEvents.startLv(dayEvents, player);
 
+	    levelOver();
 	    if (Jake.score < 100 * i) {
-		levelOver();
 		System.out.println("You did not pass this level. Must replay.");
 		i -= 1;
 	    }
