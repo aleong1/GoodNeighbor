@@ -246,7 +246,6 @@ public class CallCenter {
 	    }
 	    
 	    Crime crimeOne = crimes.peekMin();
-	    int crimeTime = crimeOne.getTimer();
 	    crimeSolved = false;
 	    
 	    if (crimeOne.equals(oldCrime)) {
@@ -254,9 +253,8 @@ public class CallCenter {
 		solveCrime(crimeOne);
 		crimes.removeMin();
 		player.increaseScore();
-		timeLeft -= crimeTime;
 		System.out.println("Time Left : " + timeLeft + " minutes");
-	    System.out.println("Current Score: " + player.score);
+		System.out.println("Current Score: " + player.score);
 	    }
 
 	    if (timeLeft <= 7 * (totalTime / 10) || crimes.size() == 0) { //new call comes in
@@ -265,13 +263,11 @@ public class CallCenter {
 		player.rank(difficulty, crimes, crimeMaker(randomCrime));
 		if ((int)(Math.random() * 2) == 0) {
 		    startMission();
-		    crimeTime = crimes.peekMin().getTimer();
 		    solveCrime(crimes.peekMin());
 		    crimes.removeMin();
 		    player.increaseScore();
-		    timeLeft -= crimeTime;
 		    System.out.println("Time Left : " + timeLeft + " minutes");
-	    System.out.println("Current Score: " + player.score);
+		    System.out.println("Current Score: " + player.score);
 		}
 	    }
 	}
@@ -300,9 +296,8 @@ public class CallCenter {
 		solveCrime(crimeOne);
 		crimes.removeMin();
 		player.increaseScore();
-		timeLeft -= crimeTime;
 		System.out.println("Time Left : " + timeLeft + " minutes");
-	    System.out.println("Current Score: " + player.score);
+		System.out.println("Current Score: " + player.score);
 	    }
 
 	    if (timeLeft <= x * (totalTime / 10)) {
@@ -310,13 +305,11 @@ public class CallCenter {
 		player.rank(difficulty, crimes, crimeMaker(randomCrime));
 		if ((int)(Math.random() * 2) == 0) {
 		    startMission();
-		    crimeTime = crimes.peekMin().getTimer();
 		    solveCrime(crimes.peekMin());
 		    crimes.removeMin();
 		    player.increaseScore();
-		    timeLeft -= crimeTime;
 		    System.out.println("Time Left : " + timeLeft + " minutes");
-	    System.out.println("Current Score: " + player.score);
+		    System.out.println("Current Score: " + player.score);
 		}
 	    }
 	}
