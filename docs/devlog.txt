@@ -4,40 +4,60 @@ Lynne Wang
 Alexia Leong
 pd 1
 ---------------------
-Project: 
+Project:
 /////////// Zone of Reflection \\\\\\\\\\\
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+-Because we were behind schedule we met up at a library to work in person on a day off, we got a lot of stuff done
+-CallCenter didn't work and we couldn't find the problem with it so we just had to redo the whole thing so it worked.
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+-Didn't incorporate real time aspect
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-ANSI escape codes are cool and helpful
 
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -In the Crime class we got rid of whenSolved() because we moved it to CallCenter because that's where timing will be taken care of.
+-We got rid of using a real time counter, it was more confusing to have two different countdowns going on at once so we got rid of one
+-Instead of getting random equipments for the equipment mini game, we traversed through all the pieces of equipment to give the player more options
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-Meeting up with team mates is always a good thing instead of working on it in different places
 
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
- ______   ______   __   __   __       ______   _______     
-/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
-\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
- \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\ 
-  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/ 
-   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
-    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
+ ______   ______   __   __   __       ______   _______
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
 ==============================================================
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+2018-06-07
+--------------------------------------------------------------
+Lily :: Worked on CallCenter, Woo, and flowcharts
+Alexia ::  Worked on CallCenter, equipment mini game, devlog, fixed README
+Lynne :: Worked on CallCenter a lot
+==============================================================
+
+2018-06-06
+--------------------------------------------------------------
+Lily :: Worked on CallCenter
+Alexia ::  Worked on CallCenter
+Lynne :: Worked on CallCenter
+==============================================================
+
 2018-06-05
 --------------------------------------------------------------
 Lily :: Worked on CallCenter, Woo, Equipment, Busters; revised flowchart
@@ -48,7 +68,7 @@ Lynne :: Worked on Woo, Equipment, Busters, plan; revised UML
 2018-06-03
 --------------------------------------------------------------
 Lily :: Worked on plan and printed it out
-Alexia :: 
+Alexia ::
 Lynne ::
 ==============================================================
 

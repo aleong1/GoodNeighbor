@@ -32,7 +32,7 @@ public class Jake {
 	interactions[6] = "Chief Flo: Day 2 on the job, Jake. \nChief Flo: I saw how you were doing yesterday, and I think I'll let you go home a little earlier today. \nChief Flo: You'll still have to finish the same amount of work, though. \nChief Flo: Don’t worry Jake, all cadets go through this. \nChief Flo: Just be grateful that you don’t have to go on the station donut and coffee run, or clean the cells, or get paper cuts from filing all the paperwork.\n\n(Select a response. Try to look good.)\n\n\t1. That’s alright. I’m ready for the challenges you throw at me. And if you need to I can totally do all the things you listed, I mean, it’s only part of being a cadet. \n\t2. Aight man, but don’t be upset when, I mean if, I screw up. I’m gonna be totally fine. \n\t3. Test me? C’mon, Chief Flo, do you know how bad I am at tests?! I can’t do anything under pressure! *drops to knees* I can’t handle it!!!";
 	interactions[7] = "Chief Flo: So how are the cases coming along? Are you handling them well? Do you think you’re able to keep working 'til the sun goes down?\n\n(Select a response. Try to look good.)\n\n\t1. Sure! I can handle it. I mean, it’s not like I had three panic attacks already but hey, I’m still here and alive (somewhat), so don’t worry! Everything’s gonna be fine and A-OK! \n\t2. A little pressure never hurt anyone, right? I’m doing just fine. I even ordered donuts for the whole station, all on me. \n\t3. Are you sure the sun isn’t already down? From my perspective everything’s very very dark, so, uh, am I ok?";
 	interactions[8] = "Chief Flo: These past three days have been tough on you Jake, but at least you made it through them. \nChief Flo: How do you think you did, Jake?\n\n(Select a response. Try to look good.)\n\n\t1. I think I did ok, Chief Flo. I’m just happy to work in your department, even if I'm just a cadet. \n\t2. Me? I think I did amazing. I mean, I came into this police station and gave it a complete 180. Before me, this place was a bit sad, no offense, but now, this place is hustling and bustling. All thanks to me, of course. \n\t3. After these three days, I don’t know if I want to be a police officer anymore. Why are there so many bad things going around in this town?";
-	
+
 	//answer key
 	answerBank[1][0] = true;
 	answerBank[2][1] = true;
@@ -163,5 +163,5 @@ public class Jake {
 	sc.nextLine();
 	System.out.print("\033[H\033[2J");
     }
-    
+
 }
