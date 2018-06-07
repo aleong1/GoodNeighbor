@@ -11,8 +11,8 @@ public class CallCenter {
     public static ArrayPriorityQueue crimes;
     private ALHeapMin inventory;
     private LinkedList<Busters> busters;
-    private int timeLimit;
-    private int difficulty;
+    private int timeLimit; //minutes in day
+    private int difficulty; //level
 
     long startTime = System.currentTimeMillis();
     long endTime = startTime + timeLimit;
@@ -41,9 +41,9 @@ public class CallCenter {
 	busters.add(new TowingCompany());
 	busters.add(new Coroner());
 
-	if (difficulty == 1) timeLimit = 240000;
-	else if (difficulty == 2) timeLimit = 180000;
-	else if (difficulty == 3) timeLimit = 120000;
+	if (difficulty == 1) timeLimit = 1440;
+	else if (difficulty == 2) timeLimit = 1080;
+	else if (difficulty == 3) timeLimit = 720;
 
     }
 
