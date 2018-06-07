@@ -44,6 +44,8 @@ public class Woo{
     
     public static void main(String[] args){
 	Jake fromStateFarm = new Jake();
+	System.out.print(ANSI_CLS + ANSI_HOME);
+	System.out.flush();
 	play(fromStateFarm);
     }
     

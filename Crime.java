@@ -44,7 +44,7 @@ public class Crime{
     }
 
     public String toString() {
-	return name + " -- Priorty = " + priority;
+	return name + " -- Extremity = " + extremity;
     }
 
     public static void main(String[] args){

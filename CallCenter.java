@@ -84,11 +84,11 @@ public class CallCenter {
 	    System.out.println(prompter);
 
 	    choice = Keyboard.readInt();
-	    busters.get(choice).changeIsChosen();
+	    busters.get(choice-1).changeIsChosen();
 
-	    prompter = "\nYou have called: " + busters.get(choice).toString() + ". They're on their way.";
-	    prompter = "\nAnyone else?";
-	    prompter = "\n(Keep in mind that choosing more busters costs time.)";
+	    prompter = "\nYou have called: " + busters.get(choice-1).toString() + ". They're on their way.";
+	    prompter += "\nAnyone else?";
+	    prompter += "\n(Keep in mind that choosing more busters costs time.)";
 	    prompter += "\n1: Yes, please! \n2: Nah";
 	    System.out.println(prompter);
 
@@ -161,22 +161,40 @@ public class CallCenter {
     }
 
     public void startLv(CallCenter currentLv, Jake player) { //i'll try to find a way to not need to use the first param
-	if (currentLv.getDifficulty() >= 1) crimes.add(crimeMaker((int)(Math.random()*9)));
-	if (currentLv.getDifficulty() >= 2) crimes.add(crimeMaker((int)(Math.random()*9)));
-	if (currentLv.getDifficulty() == 3) crimes.add(crimeMaker((int)(Math.random()*9)));
+	/*
+	if (difficulty >= 1) {
+	    Crime newCrime = crimeMaker((int)(Math.random()*9));
+	    System.out.println("\nCrime left over from before your shift:" + newCrime.toString());
+	    newCrime.setPriority((int)(Math.random()*(difficulty+10)));
+	    System.out.println("Its priority is: " + newCrime.getPriority());
+	    crimes.add(newCrime);
+	}
+	if (difficulty >= 2) crimes.add(crimeMaker((int)(Math.random()*9)));
+	if (difficulty() == 3) crimes.add(crimeMaker((int)(Math.random()*9)));
+	*/
 
-	player.interact(currentLv);
-	int halfSize = crimes.size()/2;
+	Crime oldCrime = crimeMaker((int)(Math.random()*9));
+	oldCrime.setPriority((int)(Math.random()*(difficulty+10)));
+	crimes.add(oldCrime);
+
+	player.interact(currentLv, 1 + (3 * (difficulty-1)));
+	int halfSize = (difficulty + 10)/2;
 	boolean firstCrime = true;
 	int ctr = 0;
+
+	System.out.println("START OF DAY " + difficulty);
+	System.out.println("\nCrime left over from before your shift: " + oldCrime.toString());
+	System.out.println("\nIts priority is: " + oldCrime.getPriority());
+	System.out.println("\nReady to begin?\n");
+	player.proceed();
 	
 	while (ctr < halfSize && remainingTime >= 0) { //first half of day
-	    if (firstCrime) {
-		startMission();
-		firstCrime = false;
-	    }
+	    //if (firstCrime) {
+	    //	startMission();
+	    //	firstCrime = false;
+	    //}
 
-	    else if (whenSolved(crimes.peekMin())) { //once crime is solved
+	    if (whenSolved(crimes.peekMin())) { //once crime is solved
 		crimes.removeMin();
 		player.increaseScore();
 		startMission();
@@ -189,8 +207,12 @@ public class CallCenter {
 	    }
 	    remainingTime = endTime - System.currentTimeMillis();
 	}
-	
-	player.interact(currentLv); //midday interaction
+
+	System.out.println("\nLunch break!\n");
+	player.proceed();
+	player.interact(currentLv, 2 + (3 * (difficulty-1))); //midday interaction
+	System.out.println("Back to work!\n");
+	player.proceed();
 
 	while (remainingTime >= 0) { //second half of day
 	    if (whenSolved(crimes.peekMin())) {
@@ -206,6 +228,9 @@ public class CallCenter {
 	    remainingTime = endTime - System.currentTimeMillis();
 	}
 
-	player.interact(currentLv); //end of day interaction
+	System.out.println("\nIt looks like your shift is over.\n");
+	player.proceed();
+	
+	player.interact(currentLv, 3 + (3 * (difficulty-1))); //end of day interaction
     }
 }
