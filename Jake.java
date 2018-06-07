@@ -88,7 +88,7 @@ public class Jake {
 	int choice;
 
 	prompter = "Here is the crime coming in: " + newCrime.toString() + "\nHere is your current ranking of your crimes: \n";
-	//prompter += CallCenter.crimes.toString();
+	prompter += CallCenter.crimes.toString();
 	prompter += "\nHow would you like to rank this crime?";
 	prompter += "\n(To rank something as first, enter 1. To rank something as second, enter 2. And so on...)";
 	System.out.println(prompter);
