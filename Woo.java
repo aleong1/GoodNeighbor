@@ -42,6 +42,13 @@ public class Woo{
 	System.out.println("GAME OVER!\n\nScore: " + Jake.score);
     }
 
+    public static void youWon() {
+	System.out.print(ANSI_CLS + ANSI_HOME);
+	System.out.flush();
+	System.out.println("YOU SURVIVED THREE DAYS!!!!!");
+	System.out.println("\n*insert gif of confetti raining down*");
+    }
+
     public static void main(String[] args){
 	Jake fromStateFarm = new Jake();
 	System.out.print(ANSI_CLS + ANSI_HOME);
