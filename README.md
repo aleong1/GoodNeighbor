@@ -1,7 +1,7 @@
 # GoodNeighbor
 ### Alexia Leong :watermelon:, Lynne Wang :smirk_cat:, Lily Yan :snake:
 
-                                           Police Chase: "Will You Be There?"
+## ~~~~~~~~~~~~~~~ Police Chase: "Will You Be There?" ~~~~~~~~~~~~~~~
                                            
 ### Description of Project
 We are making a police chase simulator where over the course of 1 day the player will play as a police officer (Jake) and try to solve various crimes throughout a city in order to look good for a promotion and to get that bonus ($$). There will be three levels of increasing difficulty. The crimes will all have different extremities, and the player will choose what order to deal with them by taking in various factors like how many police cars are needed, if there needs to be any other assistance, what equipment to bring, etc. The player will place each crime as it comes into a position in a priority queue.
