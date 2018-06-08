@@ -1,0 +1,99 @@
+Good Neighbor
+Lily Yan
+Lynne Wang
+Alexia Leong
+pd 1
+---------------------
+Project: 
+/////////// Zone of Reflection \\\\\\\\\\\
+------------------------------------------
+OBSTACLES OVERCOME
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-It felt like we weren't all exactly on the same page, so We all met up at the library on a day off and spent the whole day working things out and coding. We got a lot of work done.
+
+UNRESOLVED ISSUES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-couldn't incorporate real time
+
+COOL STUFF LEARNED
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-ANSI escape codes
+
+MID-DEVELOPMENT DESIGN CHANGES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-In the Crime class we got rid of whenSolved() because we moved it to CallCenter because that's where timing will be taken care of.
+- Changed minigame so that player traverses to all equipment, not just some.
+- Changed level format so that the player ranks all crimes before the day starts. Throughout the day, they choose what busters to send and what equipment to use. Emergency crimes pop up 25% of the time, and the player must rank it on the spot. If solved, they reward 200 points.
+
+LESSONS LEARNED
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-Work out the difficulty of implementing an idea BEFORE making it part of your main plan.
+-Meet up more often.
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+ ______   ______   __   __   __       ______   _______     
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\ 
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/ 
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
+==============================================================
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+2018-06-07
+--------------------------------------------------------------
+Lily :: finished
+Alexia :: finished
+Lynne :: finished
+==============================================================
+
+2018-06-05
+--------------------------------------------------------------
+Lily :: Worked on CallCenter, Woo, Equipment, Busters; revised flowchart
+Alexia :: Worked on Equipment, Jake (plus interactions); modified README
+Lynne :: Worked on Woo, Equipment, Busters, plan; revised UML
+==============================================================
+
+2018-06-03
+--------------------------------------------------------------
+Lily :: Worked on plan and printed it out
+Alexia :: 
+Lynne ::
+==============================================================
+
+2018-06-01
+--------------------------------------------------------------
+Lily :: wrote plan, worked on writing Crime class
+Alexia :: wrote plan, worked on writing Crime class
+Lynne :: wrote plan, worked on writing Crime class
+==============================================================
+
+2018-05-31
+--------------------------------------------------------------
+Lily :: Wrote plan and flow charts
+Alexia :: Wrote plan
+Lynne :: Wrote up the UML
+==============================================================
+
+2018-05-30
+--------------------------------------------------------------
+Lily :: added more to proposal
+Alexia :: added more to proposal, added repo as submodule to repo of holding, wrote plan
+Lynne :: added more to proposal
+==============================================================
+
+2018-05-29
+--------------------------------------------------------------
+Lily :: Incorporated term 2 concepts into proposal.
+Alexia :: Incorporated term 2 concepts into proposal.
+Lynne :: Incorporated term 2 concepts into proposal.
+==============================================================
+
+2018-05-28
+--------------------------------------------------------------
+Lily :: worked on proposal
+Alexia :: worked on proposal
+Lynne :: worked on proposal
+==============================================================
