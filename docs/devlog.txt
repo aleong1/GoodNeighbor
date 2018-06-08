@@ -9,8 +9,8 @@ Project:
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--Because we were behind schedule we met up at a library to work in person on a day off, we got a lot of stuff done
--CallCenter didn't work and we couldn't find the problem with it so we just had to redo the whole thing so it worked.
+-Because we were behind schedule we met up at a library to work in person on a day off, we got a lot of stuff done.
+-CallCenter didn't work and we couldn't find the problem with it so we just had to redo the whole thing.
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -25,7 +25,9 @@ MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -In the Crime class we got rid of whenSolved() because we moved it to CallCenter because that's where timing will be taken care of.
 -We got rid of using a real time counter, it was more confusing to have two different countdowns going on at once so we got rid of one
--Instead of getting random equipments for the equipment mini game, we traversed through all the pieces of equipment to give the player more options
+-Instead of getting random equipments for the equipment mini game, we let the player traverse through all the pieces of equipment to give the player more options.
+-We changed the crimes PriorityQueue to a LinkedList for simplicity's sake
+-We changed it so that the player would rank all their crimes before the day starts for the level. The player would then choose what busters to send and what equipment to take throughout the day. Emergency crimes would pop up randomly (25% chance), and the player must rank those during the day on the spot. If solved, the emergency crime rewards 200 points.
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -46,9 +48,9 @@ LESSONS LEARNED
 
 2018-06-07
 --------------------------------------------------------------
-Lily :: Worked on CallCenter, Woo, and flowcharts
+Lily :: Worked on CallCenter, Jake, Woo, and flowcharts, devlog
 Alexia ::  Worked on CallCenter, equipment mini game, devlog, fixed README
-Lynne :: Worked on CallCenter a lot
+Lynne :: Worked on CallCenter a lot, UML
 ==============================================================
 
 2018-06-06

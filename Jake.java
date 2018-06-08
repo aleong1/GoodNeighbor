@@ -2,7 +2,7 @@
  Jake class - represents player
 *********************/
 
-import java.util.Stack;
+import java.util.LinkedList;
 import cs1.Keyboard;
 import java.util.Scanner;
 
@@ -83,27 +83,58 @@ public class Jake {
 
     }
 
-    public void rank(int difficulty, PriorityQueue crimes, Crime newCrime) {
+    public void rank(int difficulty, LinkedList<Crime> crimes, Crime newCrime) {
 	String prompter = "";
 	int choice;
+	
+	prompter = "Here is the crime coming in: " + newCrime.toString() + "\nHere is your current ranking of your crimes:";
 
-	prompter = "Here is the crime coming in: " + newCrime.toString() + "\nHere is your current ranking of your crimes: \n";
-	prompter += CallCenter.crimes.toString();
-	prompter += "\nHow would you like to rank this crime?";
-	prompter += "\n(To rank something as first, enter 1. To rank something as second, enter 2. And so on...)";
+	for (int ctr = 0; ctr < crimes.size(); ctr ++) {
+	    if (ctr < difficulty) prompter += "\n0 -- " + crimes.get(ctr);
+	    else if (ctr == difficulty) prompter += "\n\n" + (ctr-difficulty+1) + " -- " + crimes.get(ctr);
+	    else prompter += "\n" + (ctr-difficulty+1) + " -- " + crimes.get(ctr);
+	}
+	System.out.println(prompter);
+
+	if (crimes.size() == difficulty) {
+	    prompter = "\nOh! You don't have any new crimes in line at the moment...";
+	    prompter += "\nUh...guess you don't have to rank anything, then.";
+	    crimes.addLast(newCrime);
+	    System.out.println(prompter);
+	    return;
+	}
+
+	if (crimes.size() == difficulty+1) {
+	    prompter = "\nWould you like to start solving this crime before or after the new crime in your queue?";
+	    prompter += "\n\t1: Before \n\t2: After";
+	    System.out.println(prompter);
+	    
+	    choice = Keyboard.readInt();
+	    while (choice != 1 && choice != 2) {
+	    	System.out.println("...That's not a valid choice. Seriously, man?");
+	    	choice = Keyboard.readInt();
+	    }
+	    
+	    if (choice == 1) {
+		crimes.add(difficulty, newCrime);
+		return;
+	    }
+	    
+	    crimes.addLast(newCrime);
+	    return;
+	}
+	
+	prompter = "\nSelect the slot you want the crime to be placed in your queue:";
+	prompter += "\n(Example: If you want your crime to be ranked second, enter 2. \nIf you have one crime left over from last night, your crime will be put in the third slot, since you can't change the order of leftover crimes. \nThe crimes that were formerly at slots >= 2 will be shifted back accordingly.)";
 	System.out.println(prompter);
 
 	choice = Keyboard.readInt();
-
-	if (choice < 1 || (difficulty == 1 && choice > 11)
-	    || (difficulty == 2 && choice > 12)
-	    || (difficulty == 3 && choice > 13)) {
-	    prompter = "This is no time to be messing around, Jake. Don't make me call the chief.";
-	    rank(difficulty, crimes, newCrime);
+	while (choice < 0 || choice > 10+difficulty) {
+	    System.out.println("Don't make me call the chief, Jake. Make a valid choice.");
+	    choice = Keyboard.readInt();
 	}
 
-	newCrime.setPriority(choice);
-        crimes.add(newCrime);
+	crimes.add(difficulty+(choice-1), newCrime);
 
     }
 
@@ -135,7 +166,7 @@ public class Jake {
 		System.out.println(prompter);
 	    }
 	    else if (randomBenefit == 1) {
-	        currentLv.crimes.peekMin().changeTimer(0.5);
+	        currentLv.crimes.getFirst().changeTimer(0.5);
 		prompter = "\nYour next mission will only take half as much time!";
 		System.out.println(prompter);
 	    }
@@ -149,7 +180,7 @@ public class Jake {
 		System.out.println(prompter);
 	    }
 	    else if (randomDetriment == 1) {
-		currentLv.crimes.peekMin().changeTimer(2.0);
+		currentLv.crimes.getFirst().changeTimer(2.0);
 		prompter = "\nYour next mission will take twice as much time. Have fun with that.";
 		System.out.println(prompter);
 	    }

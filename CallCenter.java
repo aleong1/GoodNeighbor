@@ -8,7 +8,7 @@ import cs1.Keyboard;
 public class CallCenter {
 
     //instance vars
-    public static ArrayPriorityQueue crimes;
+    public static LinkedList<Crime> crimes;
     private ALHeapMin inventory;
     private LinkedList<Busters> busters;
     private int startTime; //starts at time = 0
@@ -20,7 +20,7 @@ public class CallCenter {
 
     public CallCenter(int dif) {
 	difficulty = dif;
-	crimes = new ArrayPriorityQueue();
+	crimes = new LinkedList<Crime>();
 	inventory = new ALHeapMin();
 	busters = new LinkedList<Busters>();
 
@@ -114,7 +114,7 @@ public class CallCenter {
 	else return;
     }
 
-    public void minigame(ALHeapMin equipment) { //will implement soon
+    public void minigame(ALHeapMin equipment) {
 	System.out.print("\033[H\033[2J");
 	System.out.println("To play the game, choose option 1 if you want more helpful equipment but if you're satisfied, choose option 2\n Keep in mind the time it takes to get another piece of equipment. For each equipment you choose or pass, 5 minutes shall be deducted from your day.");
 	System.out.println("Do you understand the instructions? \n1. Yes! Let's play!!");
@@ -144,13 +144,13 @@ public class CallCenter {
 	    }
 	}
 	else {
-	    System.out.println("Follow the instructions");
+	    System.out.println("Follow the instructions. >:(");
 	    minigame(inventory);
 	}
     }
 
     public boolean firstCrime() {
-	return crimes.peekMin() != null;
+	return crimes.getFirst() != null;
     }
 
     public void solveCrime(Crime crime) {
@@ -159,8 +159,8 @@ public class CallCenter {
     }
 
     public void startMission() {
-	chooseBusters(crimes.peekMin());
-	chooseEquipment(crimes.peekMin());
+	chooseBusters(crimes.getFirst());
+	chooseEquipment(crimes.getFirst());
     }
 
     public Crime crimeMaker(int type) {
@@ -203,83 +203,117 @@ public class CallCenter {
 
     public void startLv(CallCenter currentLv, Jake player) { //i'll try to find a way to not need to use the first param
 
+	Crime bigCrime = null;
+
 	if (difficulty >= 1) {
 	    Crime newCrime = crimeMaker((int)(Math.random()*9));
 	    //System.out.println("\nCrime left over from before your shift:" + newCrime.toString());
-	    newCrime.setPriority(1);
 	    //System.out.println("Its priority is: " + newCrime.getPriority());
 	    crimes.add(newCrime);
 	}
 
 	if (difficulty >= 2) {
 	    Crime newCrime = crimeMaker((int)(Math.random()*9));
-	    newCrime.setPriority(3);
 	    crimes.add(newCrime);
 	}
 	if (difficulty == 3) {
 	    Crime newCrime = crimeMaker((int)(Math.random()*9));
-	    newCrime.setPriority(3);
 	    crimes.add(newCrime);
 	}
-
-	/*
-	  Crime oldCrime = crimeMaker((int)(Math.random()*9));
-	  oldCrime.setPriority(1);
-	  crimes.add(oldCrime);
-	*/
-	Crime oldCrime = crimes.peekMin();
 
 	player.interact(currentLv, 1 + (3 * (difficulty-1)));
 	int halfDay = totalTime / 2;
 
 	System.out.println("START OF DAY " + difficulty);
-	System.out.println("\nCrime left over from before your shift: " + oldCrime.toString());
-	System.out.println("\nIts priority is: " + oldCrime.getPriority());
-	System.out.println("\nReady to begin?\n");
+	System.out.println("\nCrime(s) left over from last night: " + crimes);
+	System.out.println("(You MUST do these crimes first. You are NOT allowed to put them off for later. Chief Flo will be mad if you do.)");
+	System.out.println("\nReady to rank?\n");
 
 	player.proceed();
 
-	while (timeLeft >= halfDay) { //first half of day
+	//ranking phase
+	for (int ctr = 0; ctr < 10; ctr ++) {
+	    int random = (int)(Math.random()*9);
+	    player.rank(difficulty, crimes, crimeMaker(random));
+	    player.proceed();
+	}
 
-	    if (crimes.size() == 0) {
-		Crime newCrime = crimeMaker((int)(Math.random()*9));
-		newCrime.setPriority(1);
-		crimes.add(newCrime);
+	//playing phase
+
+	System.out.println("You've finished ranking. Let's see how well you've strategized. Shall we?");
+	player.proceed();
+
+	while (timeLeft > halfDay) { //first half of day
+	    int rand = (int) (Math.random() * 4);
+
+	    if (rand == 3) {
+		System.out.println("\nEmergency! A crime has come in that you must deal with immediately! It is worth double the points of a regular crime.");
+		bigCrime = crimeMaker((int)(Math.random()*9));
+		
+		startMission();
+		solveCrime(bigCrime);
+		player.increaseScore();
+		player.increaseScore();
+		System.out.println("Time Left : " + timeLeft + " minutes");
+		System.out.println("Current Score: " + player.score);
 	    }
+	}
 
-	    Crime crimeOne = crimes.peekMin();
+
+
+
+
+
+
+
+	
+	/*
+	while (timeLeft > halfDay) { //first half of day
+
+	    Crime crimeOne = crimes.getFirst();
 	    crimeSolved = false;
 
 	    if (crimeOne.equals(oldCrime)) {
 		startMission();
 		solveCrime(crimeOne);
-		crimes.removeMin();
+		crimes.removeFirst();
 		player.increaseScore();
 		System.out.println("Time Left : " + timeLeft + " minutes");
 		System.out.println("Current Score: " + player.score);
 	    }
+	    
+	    else {
+		//for emergency crimes
+		/*
+		int rand = (int) (Math.random() * 4);
 
+		if (rand < 3 ) { //new call comes in
+		    int randomCrime = (int)(Math.random()*9);
+		    player.rank(difficulty, crimes, crimeMaker(randomCrime));
+		    startMission();
+		    solveCrime(crimes.getFirst());
+		    crimes.removeFirst();
+		    player.increaseScore();
+		    System.out.println("Time Left : " + timeLeft + " minutes");
+		    System.out.println("Current Score: " + player.score);
+		}
 
+		else {
+		    System.out.println("Emergency! A crime has come in that you must deal with immediately! It is worth double the points of a regular crime.");
+		    Crime bigCrime = crimeMaker((int)(Math.random()*9));
+		    startMission();
+		    solveCrime(bigCrime);
+		    player.increaseScore();
+		    player.increaseScore();
+		    System.out.println("Time Left : " + timeLeft + " minutes");
+		    System.out.println("Current Score: " + player.score);
+		}
 
-	    int rand = (int) (Math.random() * 4);
-
-	    if (rand < 3 || crimes.size() == 0) { //new call comes in
 		int randomCrime = (int)(Math.random()*9);
 		player.rank(difficulty, crimes, crimeMaker(randomCrime));
-	        startMission();
-		solveCrime(crimes.peekMin());
-		crimes.removeMin();
-		player.increaseScore();
-		System.out.println("Time Left : " + timeLeft + " minutes");
-		System.out.println("Current Score: " + player.score);
-	    }
-
-	    else {
-		System.out.println("Emergency! A crime has come in that you must deal with immediately! It is worth double the points of a regular crime.");
-		Crime bigCrime = crimeMaker((int)(Math.random()*9));
 		startMission();
-		solveCrime(bigCrime);
-		player.increaseScore();
+		solveCrime(crimes.getFirst());
+		crimes.removeFirst();
 		player.increaseScore();
 		System.out.println("Time Left : " + timeLeft + " minutes");
 		System.out.println("Current Score: " + player.score);
@@ -292,7 +326,7 @@ public class CallCenter {
 	System.out.println("Back to work!\n");
 	player.proceed();
 
-	while (timeLeft >= 0) { //second half of day
+	while (timeLeft > 0) { //second half of day
 
 	    if (crimes.size() == 0) {
 		Crime newCrime = crimeMaker((int)(Math.random()*9));
@@ -300,14 +334,14 @@ public class CallCenter {
 		crimes.add(newCrime);
 	    }
 
-	    Crime crimeOne = crimes.peekMin();
+	    Crime crimeOne = crimes.getFirst();
 	    int crimeTime = crimeOne.getTimer();
 	    crimeSolved = false;
 
 	    if (firstCrime()) {
 		startMission();
 		solveCrime(crimeOne);
-		crimes.removeMin();
+		crimes.removeFirst();
 		player.increaseScore();
 		System.out.println("Time Left : " + timeLeft + " minutes");
 		System.out.println("Current Score: " + player.score);
@@ -318,9 +352,9 @@ public class CallCenter {
 	    if (rand < 3 || crimes.size() == 0) { //new call comes in
 		int randomCrime = (int)(Math.random()*9);
 		player.rank(difficulty, crimes, crimeMaker(randomCrime));
-	        startMission();
-		solveCrime(crimes.peekMin());
-		crimes.removeMin();
+	        //startMission();
+		solveCrime(crimes.getFirst());
+		crimes.removeFirst();
 		player.increaseScore();
 		System.out.println("Time Left : " + timeLeft + " minutes");
 		System.out.println("Current Score: " + player.score);
@@ -342,5 +376,7 @@ public class CallCenter {
 	player.proceed();
 
 	player.interact(currentLv, 3 + (3 * (difficulty-1))); //end of day interaction
+	*/
     }
+	
 }
