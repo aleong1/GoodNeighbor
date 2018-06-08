@@ -94,6 +94,7 @@ public class Jake {
 	System.out.println(prompter);
 
 	choice = Keyboard.readInt();
+
 	if (choice < 1 || (difficulty == 1 && choice > 11)
 	    || (difficulty == 2 && choice > 12)
 	    || (difficulty == 3 && choice > 13)) {
@@ -125,12 +126,12 @@ public class Jake {
 
 	prompter = aftermath[choice-1][numInteract-1];
 	System.out.println(prompter);
-	
+
 	if (answerBank[choice-1][numInteract-1]) {
 	    int randomBenefit = (int)(Math.random()*2);
 	    if (randomBenefit == 0) {
-		currentLv.increaseTime(); //increases time limit by 30 seconds
-		prompter = "\nYour time limit has increased by an hour! (real time: 30 seconds)";
+		currentLv.increaseTime();
+		prompter = "\nYour time limit has increased by an hour!";
 		System.out.println(prompter);
 	    }
 	    else if (randomBenefit == 1) {
@@ -143,8 +144,8 @@ public class Jake {
 	else {
 	    int randomDetriment = (int)(Math.random()*2);
 	    if (randomDetriment == 0) {
-		currentLv.increaseTime(); //increases time limit by 30 seconds
-		prompter = "\nThe chief is getting sick of you, so he wants you to go home earlier. Your time limit has decreased by an hour. (real time: 30 seconds)";
+		currentLv.increaseTime();
+		prompter = "\nThe chief is getting sick of you, so he wants you to go home earlier. Your time limit has decreased by an hour.";
 		System.out.println(prompter);
 	    }
 	    else if (randomDetriment == 1) {

@@ -205,11 +205,12 @@ public class CallCenter {
 
   if (difficulty >= 1) {
     Crime newCrime = crimeMaker((int)(Math.random()*9));
-    System.out.println("\nCrime left over from before your shift:" + newCrime.toString());
+    //System.out.println("\nCrime left over from before your shift:" + newCrime.toString());
     newCrime.setPriority(1);
-    System.out.println("Its priority is: " + newCrime.getPriority());
+    //System.out.println("Its priority is: " + newCrime.getPriority());
     crimes.add(newCrime);
   }
+
   if (difficulty >= 2) {
     Crime newCrime = crimeMaker((int)(Math.random()*9));
     newCrime.setPriority(3);
@@ -239,7 +240,7 @@ public class CallCenter {
   player.proceed();
 
   int x = 9;
-  while (timeLeft > halfDay) { //first half of day
+  while (timeLeft >= halfDay) { //first half of day
 
     if (crimes.size() == 0) {
       Crime newCrime = crimeMaker((int)(Math.random()*9));
@@ -258,6 +259,8 @@ public class CallCenter {
       System.out.println("Time Left : " + timeLeft + " minutes");
       System.out.println("Current Score: " + player.score);
     }
+
+
 
     if (timeLeft <= 7 * (totalTime / 10) || crimes.size() == 0) { //new call comes in
       x -= 1;
