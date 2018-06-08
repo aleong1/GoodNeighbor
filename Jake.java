@@ -178,7 +178,7 @@ public class Jake {
 	    int randomBenefit = (int)(Math.random()*2);
 	    if (randomBenefit == 0) {
 		currentLv.increaseTime();
-		prompter = "\nYour time limit has increased by an hour!";
+		prompter = "\nYour time limit has increased by half an hour!";
 		System.out.println(prompter);
 	    }
 	    else if (randomBenefit == 1) {
@@ -192,7 +192,7 @@ public class Jake {
 	    int randomDetriment = (int)(Math.random()*2);
 	    if (randomDetriment == 0) {
 		currentLv.increaseTime();
-		prompter = "\nThe chief is getting sick of you, so he wants you to go home earlier. Your time limit has decreased by an hour.";
+		prompter = "\nThe chief is getting sick of you, so he wants you to go home earlier. Your time limit has decreased by half an hour.";
 		System.out.println(prompter);
 	    }
 	    else if (randomDetriment == 1) {
