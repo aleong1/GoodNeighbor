@@ -33,6 +33,7 @@ public class Busters{
     }
 
     public boolean doTheyMatch(Crime input) {
+	if (input.getNeedNone()) return true;
 	if (input instanceof Arson && solveArson) return true;
 	if (input instanceof Murder && solveMurder) return true;
 	if (input instanceof Traffic && solveTraffic) return true;

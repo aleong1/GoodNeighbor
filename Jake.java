@@ -36,7 +36,7 @@ public class Jake {
 	//answer key
 	answerBank[1][0] = true;
 	answerBank[2][1] = true;
-	answerBank[1][2] = true;
+	answerBank[0][2] = true;
 	answerBank[0][3] = true;
 	answerBank[1][4] = true;
 	answerBank[0][5] = true;

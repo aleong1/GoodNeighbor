@@ -10,7 +10,6 @@ public class Kidnapping extends Crime{
 	needParamedics = true;
 	needCoroner = true;
 	needFBI = true;
-	needBackUp = true;
 
 	name = "Kidnapping";
     }
@@ -25,7 +24,6 @@ public class Kidnapping extends Crime{
 	needParamedics = true;
 	needCoroner = true;
 	needFBI = true;
-	needBackUp = true;
 
 	name = "Kidnapping";
     }

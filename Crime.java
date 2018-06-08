@@ -15,7 +15,7 @@ public class Crime{
     protected boolean needFBI;
     protected boolean needIRS;
     protected boolean needTow;   //For CarCrash and ParkingVio
-    protected boolean needBackUp;  //For more police cars if needed
+    protected boolean needNone; 
     
 
     public Crime(int extrem){     //constructor
@@ -45,6 +45,10 @@ public class Crime{
 	int temp = timer;
 	timer *= factor;
 	return temp;
+    }
+
+    public boolean getNeedNone() {
+	return needNone;
     }
 
     public String toString() {

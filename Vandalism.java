@@ -7,6 +7,8 @@ public class Vandalism extends Crime{
 	else if (extrem == 2) timer = 30; //30 minutes
 
 	name = "Vandalism";
+
+	needNone = true;
 	
     }
 
@@ -17,6 +19,8 @@ public class Vandalism extends Crime{
 	else if (extrem == 2) timer = 30; //30 minutes
 
 	name = "Vandalism";
+
+	needNone = true;
 	
     }
 }

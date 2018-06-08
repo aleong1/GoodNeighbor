@@ -7,7 +7,7 @@ public class Robbery extends Crime{
 	else if (extrem == 2) timer = 30; //30 minutes
 	else if (extrem == 3) timer = 120; //2 hours
 
-	needBackUp = true;
+        needNone = true;
 
 	name = "Robbery";
     }
@@ -19,7 +19,7 @@ public class Robbery extends Crime{
 	else if (extrem == 2) timer = 30; //30 minutes
 	else if (extrem == 3) timer = 120; //2 hours
 
-	needBackUp = true;
+	needNone = true;
 
 	name = "Robbery";
     }
