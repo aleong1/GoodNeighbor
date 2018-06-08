@@ -4,7 +4,7 @@ Lynne Wang
 Alexia Leong
 pd 1
 ---------------------
-Project: 
+Project: Police Chase: "Will You Be There?"
 /////////// Zone of Reflection \\\\\\\\\\\
 ------------------------------------------
 OBSTACLES OVERCOME
@@ -21,9 +21,10 @@ COOL STUFF LEARNED
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--In the Crime class we got rid of whenSolved() because we moved it to CallCenter because that's where timing will be taken care of.
+- In the Crime class we got rid of whenSolved() because we moved it to CallCenter because that's where timing will be taken care of.
+- Got rid of PriorityQueue in favor of LinkedList, for simplicity's sake.
 - Changed minigame so that player traverses to all equipment, not just some.
-- Changed level format so that the player ranks all crimes before the day starts. Throughout the day, they choose what busters to send and what equipment to use. Emergency crimes pop up 25% of the time, and the player must rank it on the spot. If solved, they reward 200 points.
+- Changed level format so that the player ranks all crimes before the day starts. Throughout the day, they choose what busters to send and what equipment to use. Emergency crimes pop up 10% of the time, and the player must rank it on the spot. If solved, they reward 200 points.
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -44,9 +45,9 @@ LESSONS LEARNED
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 2018-06-07
 --------------------------------------------------------------
-Lily :: finished
-Alexia :: finished
-Lynne :: finished
+Lily :: finished, updated flowcharts and devlog, bug fixing
+Alexia :: finished, updated readme and devlog, bug fixing
+Lynne :: finished, updated uml, bug fixing
 ==============================================================
 
 2018-06-05
