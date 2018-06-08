@@ -26,6 +26,7 @@ MID-DEVELOPMENT DESIGN CHANGES
 -In the Crime class we got rid of whenSolved() because we moved it to CallCenter because that's where timing will be taken care of.
 -We got rid of using a real time counter, it was more confusing to have two different countdowns going on at once so we got rid of one
 -Instead of getting random equipments for the equipment mini game, we traversed through all the pieces of equipment to give the player more options
+-Calls from CallCenter come in randomly now instead of at intervals 
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
