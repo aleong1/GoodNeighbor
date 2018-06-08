@@ -3,15 +3,10 @@ public class Equipment{
     protected int value;
     protected String name;
 
-    protected boolean helpArson;
-    protected boolean helpRobbery;
     protected boolean helpMurder;
     protected boolean helpTraffic;
     protected boolean helpDrugs;
-    protected boolean helpVandalism;
     protected boolean helpSA;
-    protected boolean helpKidnapping;
-    protected boolean helpTF;
     protected boolean helpAll;
 
     public Equipment(){}
@@ -20,12 +15,23 @@ public class Equipment{
 	return value;
     }
 
+    public int setValue(int newVal) {
+	int temp = value;
+	value = newVal;
+	return temp;
+    }
+
     public String toString() {
 	return name;
     }
 
-    public static void main(String[] args) {
-
+    public boolean doTheyMatch(Crime input) {
+	if (helpAll) return true;
+	if (input instanceof Murder && helpMurder) return true;
+	if (input instanceof Drugs && helpDrugs) return true;
+	if (input instanceof SexualAssault && helpSA) return true;
+	if (input instanceof Traffic && helpTraffic) return true;
+	return false;
     }
 
 }

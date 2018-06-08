@@ -12,4 +12,16 @@ public class Murder extends Crime{
 
 	name = "Murder";
     }
+
+    public Murder(int extrem, boolean isEm) {
+        super(extrem, isEm);
+	if (extrem == 4) timer = 240; //4 hours
+	else if (extrem == 5) timer = 360; //6 hours
+
+	needParamedics = true;
+	needFBI = true;
+	needCoroner = true;
+
+	name = "Murder";
+    }
 }

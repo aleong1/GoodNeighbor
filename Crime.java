@@ -8,6 +8,7 @@ public class Crime{
     protected int timer;
     protected String name;
 
+    protected boolean emergency;
     protected boolean needParamedics;  //for Arson, Murder, CarCrash, Drugs, SexualAssault, Kidnapping
     protected boolean needCoroner;   //same as above
     protected boolean needFireDept;
@@ -21,8 +22,23 @@ public class Crime{
 	extremity = extrem;
     }
 
+    public Crime(int extrem, boolean isEmergency) {
+	this(extrem);
+	emergency = isEmergency;
+    }
+
+    public boolean getEmergency() {
+	return emergency;
+    }
+
     public int getTimer() {
 	return timer;
+    }
+
+    public int changeTimer(int difference) {
+	int temp = timer;
+	timer -= difference;
+	return temp;
     }
 
     public int changeTimer(double factor) { //benefit/punishment. Factor == 2 or 0.5
@@ -32,7 +48,7 @@ public class Crime{
     }
 
     public String toString() {
-	return name + " -- Extremity = " + extremity;
+	return name + " -- Extremity = " + extremity + " -- Time to Solve = " + timer + " minutes";
     }
 
     public static void main(String[] args){

@@ -1,7 +1,7 @@
 public class SexualAssault extends Crime{
     //constructor
-    public SexualAssault(int extrem) {
-	super(extrem);
+    public SexualAssault(int extrem, boolean isEm) {
+	super(extrem, isEm);
 
 	if (extrem == 3) timer = 60; //1 hour
 	else if (extrem == 4) timer = 120; //2 hours

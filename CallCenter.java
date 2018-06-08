@@ -3,6 +3,7 @@ CallCenter class
 ******************/
 
 import java.util.LinkedList;
+import java.util.Stack;
 import cs1.Keyboard;
 
 public class CallCenter {
@@ -15,8 +16,6 @@ public class CallCenter {
     private int timeLeft; //minutes left in level
     private int totalTime; //minutes allowed in level
     private int difficulty; //level 1, 2, or 3
-
-    private boolean crimeSolved;
 
     public CallCenter(int dif) {
 	difficulty = dif;
@@ -74,6 +73,7 @@ public class CallCenter {
 	}
 
 	while (choice == 1) {
+	    timeLeft -= 5;
 	    prompter = "Please select who you gonna call:";
 	    for (int ctr = 0; ctr < busters.size(); ctr ++) {
 		prompter += "\n\t" + (ctr+1) + ": " + busters.get(ctr).toString();
@@ -82,10 +82,18 @@ public class CallCenter {
 	    System.out.println(prompter);
 
 	    choice = Keyboard.readInt();
-	    busters.get(choice-1).changeIsChosen();
 
-	    prompter = "\nYou have called: " + busters.get(choice-1).toString() + ". They're on their way.";
-	    prompter += "\nAnyone else?";
+	    if (! busters.get(choice-1).getIsChosen()) {
+		prompter = "\nYou have called: " + busters.get(choice-1).toString() + ". They're on their way.";
+		System.out.println(prompter);
+		busters.get(choice-1).changeIsChosen();
+	    }
+	    else {
+		prompter = "\nYou already called them. Don't waste time. Try again.";
+		System.out.println(prompter);
+	    }
+	    
+	    prompter = "\nAnyone else?";
 	    prompter += "\n(Keep in mind that choosing more busters costs time.)";
 	    prompter += "\n1: Yes, please! \n2: Nah";
 	    System.out.println(prompter);
@@ -98,6 +106,7 @@ public class CallCenter {
     public void chooseEquipment(Crime input) {
 	String prompter = "";
 	int choice;
+	Equipment ans;
 
 	prompter = "\n\nWould you like to grab equipment for this mission?\n" + "Mission = " + input.toString() + "\n";
 	prompter += "\n1: Yes, please! \n2: Nah";
@@ -109,12 +118,23 @@ public class CallCenter {
 	    chooseBusters(input);
 	}
 	if (choice == 1){
-	    minigame(inventory);
+	    ans = minigame(inventory);
+	    if (ans == null) return;
+
+	    if (ans.doTheyMatch(input)) {
+		if (ans.getValue()*5 > input.getTimer()) {
+		    input.changeTimer(input.getTimer());
+		    return;
+		}
+		input.changeTimer(ans.getValue()*5);
+	    }
+	    else System.out.println("\nIt looks like the equipment you chose wasn't helpful for the mission. Be more mindful of that.");
 	}
-	else return;
     }
 
-    public void minigame(ALHeapMin equipment) {
+    
+
+    public Equipment minigame(ALHeapMin equipment) {
 	System.out.print("\033[H\033[2J");
 	System.out.println("To play the game, choose option 1 if you want more helpful equipment but if you're satisfied, choose option 2\n Keep in mind the time it takes to get another piece of equipment. For each equipment you choose or pass, 5 minutes shall be deducted from your day.");
 	System.out.println("Do you understand the instructions? \n1. Yes! Let's play!!");
@@ -123,39 +143,47 @@ public class CallCenter {
 	    System.out.print("\033[H\033[2J");
 	    System.out.println("~~CHOOSE YOUR WEAPON~~");
 	    System.out.println("Start Game:");
-	    while( choice != 2){
-		if(equipment.isEmpty()){
-		    System.out.println("Looks like we ran out of materials, guess you have to continue the game emptyhanded");
-		    return;
-		}
+
+	    Stack<Equipment> storage= new Stack<Equipment>();
+	    while( choice == 1){
+		timeLeft -= 5; //deduct 5 minutes from gameplay
 		Equipment object = equipment.peekMin();
+		if (object == null) {
+		    System.out.println("Looks like you've gone through everything, Jake...Ah, well. No equipment for you, then!");
+		    while (! storage.empty()) equipment.add(storage.pop());
+		    return null;
+		}
+		
 		System.out.println("Item on trial:" + object);
 		System.out.println("Do you plan on keeping this?");
 		System.out.println("1. No, give me something else \n2. Yes, of course, who wouldn't want this?");
-		timeLeft -= 5; //deduct 5 minutes from gameplay
 		choice = Keyboard.readInt();
 		if(choice == 1){
-		    equipment.removeMin();
+		    storage.push(equipment.removeMin());
 		}
 		else{
-		    System.out.println("Back to the original game");
-		    return;
+		    System.out.println("\nYou have chosen: " + object);
+
+		    while (! storage.empty()) equipment.add(storage.pop());
+		    
+		    System.out.println("\nMinigame over!");
+		    return object;
 		}
 	    }
 	}
+	
 	else {
 	    System.out.println("Follow the instructions. >:(");
 	    minigame(inventory);
 	}
-    }
-
-    public boolean firstCrime() {
-	return crimes.getFirst() != null;
+	return null;
     }
 
     public void solveCrime(Crime crime) {
 	timeLeft -= crime.getTimer();
-	crimeSolved = true;
+	for (Busters b : busters) {
+	    if (b.getIsChosen()) b.changeIsChosen();
+	}
     }
 
     public void startMission() {
@@ -163,61 +191,50 @@ public class CallCenter {
 	chooseEquipment(crimes.getFirst());
     }
 
-    public Crime crimeMaker(int type) {
+    public Crime crimeMaker(int type, boolean isEm) {
 	int extrem;
 	if (type == 0) {
 	    extrem = (int)(Math.random()*5) + 1;
-	    return new Arson(extrem);
+	    return new Arson(extrem, isEm);
 	}
 	else if (type == 1) {
 	    extrem = (int)(Math.random()*2) + 4;
-	    return new Murder(extrem);
+	    return new Murder(extrem, isEm);
 	}
 	else if (type == 2) {
 	    extrem = (int)(Math.random()*5) + 1;
-	    return new Drugs(extrem);
+	    return new Drugs(extrem, isEm);
 	}
 	else if (type == 3) {
 	    extrem = (int)(Math.random()*2) + 1;
-	    return new Vandalism(extrem);
+	    return new Vandalism(extrem, isEm);
 	}
 	else if (type == 4) {
 	    extrem = 2;
-	    return new TaxFraud(extrem);
+	    return new TaxFraud(extrem, isEm);
 	}
 	else if (type == 5) {
 	    extrem = (int)(Math.random()*3) + 1;
-	    return new Robbery(extrem);
+	    return new Robbery(extrem, isEm);
 	}
 	else if (type == 6) {
 	    extrem = (int)(Math.random()*3) + 3;
-	    return new Kidnapping(extrem);
+	    return new Kidnapping(extrem, isEm);
 	}
 	else if (type == 7) {
 	    extrem = (int)(Math.random()*3) + 3;
-	    return new SexualAssault(extrem);
+	    return new SexualAssault(extrem, isEm);
 	}
 	extrem = (int)(Math.random()*5) + 1;
-	return new Traffic(extrem);
+	return new Traffic(extrem, isEm);
     }
 
     public void startLv(CallCenter currentLv, Jake player) { //i'll try to find a way to not need to use the first param
 
-	Crime bigCrime = null;
-
-	if (difficulty >= 1) {
-	    Crime newCrime = crimeMaker((int)(Math.random()*9));
+	if (difficulty == 1) {
+	    Crime newCrime = crimeMaker((int)(Math.random()*9), false);
 	    //System.out.println("\nCrime left over from before your shift:" + newCrime.toString());
 	    //System.out.println("Its priority is: " + newCrime.getPriority());
-	    crimes.add(newCrime);
-	}
-
-	if (difficulty >= 2) {
-	    Crime newCrime = crimeMaker((int)(Math.random()*9));
-	    crimes.add(newCrime);
-	}
-	if (difficulty == 3) {
-	    Crime newCrime = crimeMaker((int)(Math.random()*9));
 	    crimes.add(newCrime);
 	}
 
@@ -234,90 +251,40 @@ public class CallCenter {
 	//ranking phase
 	for (int ctr = 0; ctr < 10; ctr ++) {
 	    int random = (int)(Math.random()*9);
-	    player.rank(difficulty, crimes, crimeMaker(random));
+	    player.rank(difficulty, crimes, crimeMaker(random, false));
 	    player.proceed();
 	}
 
 	//playing phase
 
 	System.out.println("You've finished ranking. Let's see how well you've strategized. Shall we?");
+	System.out.println("\nThe length of your shift today is: " + timeLeft + " minutes.");
+	System.out.println("(If you finish all your crimes before then, your score is boosted by the amount of minutes you have to spare.)");
+	System.out.println("(If you work overtime, meaning your 'Time Left' counter is negative by the end of the day, your score will be decremented by the amount of minutes you worked overtime.)");
+	System.out.println("(Understand? Then, hurry up and start the day.)");
 	player.proceed();
 
-	while (timeLeft > halfDay) { //first half of day
-	    int rand = (int) (Math.random() * 4);
-
-	    if (rand == 3) {
-		System.out.println("\nEmergency! A crime has come in that you must deal with immediately! It is worth double the points of a regular crime.");
-		bigCrime = crimeMaker((int)(Math.random()*9));
-		
-		startMission();
-		solveCrime(bigCrime);
-		player.increaseScore();
-		player.increaseScore();
-		System.out.println("Time Left : " + timeLeft + " minutes");
-		System.out.println("Current Score: " + player.score);
-	    }
-	}
-
-
-
-
-
-
-
-
-	
-	/*
-	while (timeLeft > halfDay) { //first half of day
-
-	    Crime crimeOne = crimes.getFirst();
-	    crimeSolved = false;
-
-	    if (crimeOne.equals(oldCrime)) {
-		startMission();
-		solveCrime(crimeOne);
-		crimes.removeFirst();
-		player.increaseScore();
-		System.out.println("Time Left : " + timeLeft + " minutes");
-		System.out.println("Current Score: " + player.score);
+	while (crimes.size() > (10+difficulty)/2) { //first half of day
+	    if (crimes.size() == 0) {
+		System.out.println("\n(Wow, that was fast. Either you're really skilled, or you skipped a lot of dialogue. Chief Flo doesn't like that.)");
+		break;
 	    }
 	    
-	    else {
-		//for emergency crimes
-		/*
-		int rand = (int) (Math.random() * 4);
-
-		if (rand < 3 ) { //new call comes in
-		    int randomCrime = (int)(Math.random()*9);
-		    player.rank(difficulty, crimes, crimeMaker(randomCrime));
-		    startMission();
-		    solveCrime(crimes.getFirst());
-		    crimes.removeFirst();
-		    player.increaseScore();
-		    System.out.println("Time Left : " + timeLeft + " minutes");
-		    System.out.println("Current Score: " + player.score);
-		}
-
-		else {
-		    System.out.println("Emergency! A crime has come in that you must deal with immediately! It is worth double the points of a regular crime.");
-		    Crime bigCrime = crimeMaker((int)(Math.random()*9));
-		    startMission();
-		    solveCrime(bigCrime);
-		    player.increaseScore();
-		    player.increaseScore();
-		    System.out.println("Time Left : " + timeLeft + " minutes");
-		    System.out.println("Current Score: " + player.score);
-		}
-
-		int randomCrime = (int)(Math.random()*9);
-		player.rank(difficulty, crimes, crimeMaker(randomCrime));
-		startMission();
-		solveCrime(crimes.getFirst());
-		crimes.removeFirst();
-		player.increaseScore();
-		System.out.println("Time Left : " + timeLeft + " minutes");
-		System.out.println("Current Score: " + player.score);
+	    int rand = (int) (Math.random() * 10);
+	    if (rand == 3) {
+		System.out.println("\nEmergency! A crime has come in that you must deal with immediately! It is worth double the points of a regular crime.");
+		Crime bigCrime = crimeMaker((int)(Math.random()*9), true);
+	        player.rank(difficulty, crimes, bigCrime);
+		player.proceed();
 	    }
+	    
+	    startMission();
+	    player.increaseScore(busters, crimes.getFirst());
+	    solveCrime(crimes.getFirst());
+	    crimes.removeFirst();
+	    System.out.println("Time Left : " + timeLeft + " minutes");
+	    System.out.println("Current Score: " + player.score);
+	    player.proceed();
 	}
 
 	System.out.println("\nLunch break!\n");
@@ -326,57 +293,50 @@ public class CallCenter {
 	System.out.println("Back to work!\n");
 	player.proceed();
 
-	while (timeLeft > 0) { //second half of day
-
+	while (crimes.size() > 0) { //second half of day
 	    if (crimes.size() == 0) {
-		Crime newCrime = crimeMaker((int)(Math.random()*9));
-		newCrime.setPriority(1);
-		crimes.add(newCrime);
+	        break;
 	    }
 
-	    Crime crimeOne = crimes.getFirst();
-	    int crimeTime = crimeOne.getTimer();
-	    crimeSolved = false;
-
-	    if (firstCrime()) {
-		startMission();
-		solveCrime(crimeOne);
-		crimes.removeFirst();
-		player.increaseScore();
-		System.out.println("Time Left : " + timeLeft + " minutes");
-		System.out.println("Current Score: " + player.score);
+	    int rand = (int) (Math.random() * 10);
+	    if (rand == 3 || crimes.size() == 0) { //new call comes in
+		System.out.println("\nEmergency! A crime has come in that you must deal with immediately! It is worth double the points of a regular crime.");
+		Crime bigCrime = crimeMaker((int)(Math.random()*9), true);
+	        player.rank(difficulty, crimes, bigCrime);
+		player.proceed();
 	    }
+	    
+	    startMission();
+	    player.increaseScore(busters, crimes.getFirst());
+	    solveCrime(crimes.getFirst());
+	    crimes.removeFirst();
+	    System.out.println("Time Left : " + timeLeft + " minutes");
+	    System.out.println("Current Score: " + player.score);
+	    player.proceed();
 
-	    int rand = (int) (Math.random() * 4);
-
-	    if (rand < 3 || crimes.size() == 0) { //new call comes in
-		int randomCrime = (int)(Math.random()*9);
-		player.rank(difficulty, crimes, crimeMaker(randomCrime));
-	        //startMission();
-		solveCrime(crimes.getFirst());
-		crimes.removeFirst();
-		player.increaseScore();
-		System.out.println("Time Left : " + timeLeft + " minutes");
-		System.out.println("Current Score: " + player.score);
-	    }
-
-	    else {
-		System.out.println("Emergency! A crime has come in that you must deal with immediately! It is worth double the points of a regular crime.");
-		Crime bigCrime = crimeMaker((int)(Math.random()*9));
-		startMission();
-		solveCrime(bigCrime);
-		player.increaseScore();
-		player.increaseScore();
-		System.out.println("Time Left : " + timeLeft + " minutes");
-		System.out.println("Current Score: " + player.score);
-	    }
 	}
 
 	System.out.println("\nIt looks like your shift is over.\n");
 	player.proceed();
 
+	if (difficulty+1 == 2) {
+	    Crime newCrime = crimeMaker((int)(Math.random()*9), false);
+	    crimes.add(newCrime);
+	    newCrime = crimeMaker((int)(Math.random()*9), false);
+	    crimes.add(newCrime);
+	}
+	else if (difficulty+1 == 3) {
+	    Crime newCrime = crimeMaker((int)(Math.random()*9), false);
+	    crimes.add(newCrime);
+	    newCrime = crimeMaker((int)(Math.random()*9), false);
+	    crimes.add(newCrime);
+	    newCrime = crimeMaker((int)(Math.random()*9), false);
+	    crimes.add(newCrime);
+	}
+	
 	player.interact(currentLv, 3 + (3 * (difficulty-1))); //end of day interaction
-	*/
+	player.timeScoreEffect(timeLeft);
+
     }
 	
 }

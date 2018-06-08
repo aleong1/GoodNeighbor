@@ -17,7 +17,11 @@ public class Busters{
     protected boolean solveTaxFraud;
     
     public Busters(){     //constructor
-	isChosen = true;
+	isChosen = false;
+    }
+
+    public boolean getIsChosen() {
+	return isChosen;
     }
 
     public void changeIsChosen() {
@@ -26,5 +30,16 @@ public class Busters{
     
     public String toString() {
 	return name;
+    }
+
+    public boolean doTheyMatch(Crime input) {
+	if (input instanceof Arson && solveArson) return true;
+	if (input instanceof Murder && solveMurder) return true;
+	if (input instanceof Traffic && solveTraffic) return true;
+	if (input instanceof Drugs && solveDrugs) return true;
+	if (input instanceof SexualAssault && solveSexualAssault) return true;
+	if (input instanceof Kidnapping && solveKidnapping) return true;
+	if (input instanceof TaxFraud && solveTaxFraud) return true;
+	return false;
     }
 }

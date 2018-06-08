@@ -129,7 +129,7 @@ public class Jake {
 	System.out.println(prompter);
 
 	choice = Keyboard.readInt();
-	while (choice < 0 || choice > 10+difficulty) {
+	while (choice < 0 || choice > crimes.size()) {
 	    System.out.println("Don't make me call the chief, Jake. Make a valid choice.");
 	    choice = Keyboard.readInt();
 	}
@@ -138,8 +138,24 @@ public class Jake {
 
     }
 
-    public void increaseScore() {
-	score += 100;
+    public void increaseScore(LinkedList<Busters> busters, Crime input) {
+	boolean isSolved = false;
+	for (Busters b: busters) {
+	    if (b.getIsChosen() && b.doTheyMatch(input)) {
+		isSolved = true;
+		break;
+	    }
+	}
+	
+	if (isSolved) {
+	    score += 100;
+	    if (input.getEmergency()) score += 100;
+	}
+	else System.out.println("\nYou didn't call the right people. Better luck next time.");
+    }
+
+    public void timeScoreEffect(int timeLeft) {
+	score += timeLeft;
     }
 
     public static void interact(CallCenter currentLv, int numInteract) {
